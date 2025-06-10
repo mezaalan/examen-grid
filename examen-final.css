@@ -24,7 +24,7 @@ body, html {
   justify-content: center;
   align-items: center;
   padding: 0.5rem 0.5rem;
-  border-radius: 10px;
+  border-radius: 15px;
   max-width: 1100px;   /* ancho máximo del header */
   margin: 20px auto;      /* centra el header horizontalmente */
   width: 100%;         /* que use todo el ancho disponible hasta 1200px */
