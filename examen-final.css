@@ -2,54 +2,59 @@ body, html {
         margin: 0;
         padding: 0;
         height: 100%;
-}
-
-@media screen and (max-width:576px) {
-    body {
-        background-color: black
-    }
-
-    .header{
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-    }
-
-    .video-fondo {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 0;
-    }
-
-    .menu {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
-        position: absolute;
-        top: 20px;
-        padding: 5px 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-        color: black;
-        width: 555px; /* opcional para controlar el ancho */
-        background-color: white;
-   }
-      
-   .menu div {
-    margin: 0;
-    padding: 0;
-  }
-   
-  .menu div {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}  
+        overflow: hidden;
+        text-decoration: none;
+}
+.video-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+.header {
+  position: relative;
+  color: black;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  max-width: 1100px;   /* ancho máximo del header */
+  margin: 20px auto;      /* centra el header horizontalmente */
+  width: 100%;         /* que use todo el ancho disponible hasta 1200px */
+}
+.menu ul{
+  display: flex;
+  
+}
+.menu li{
+  margin-right: 80px;
+  color: black;
+  list-style: none;
+}
+.menu a {
+  color: black;
+  text-decoration: none;
+  display: inline-block; /* NECESARIO para que funcione transform */
+  transition: all 0.3s ease;
+}
+.menu a:hover {
+  color: rgb(112, 112, 112);
+  transform: scale(1.2); /* AGRANDA */
+}
+.menu li:nth-child(7) {
+  background-color: gray;
+  border: 2px solid gray;
+  border-radius: 1px;
+  padding: 0px;
+}
+.menu li:nth-child(7) {
+  background: transparent;
+  border: 2px solid gray;
+}
