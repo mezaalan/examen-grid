@@ -21,40 +21,173 @@ body, html {
   z-index: 1;
   background-color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 10px;
   align-items: center;
   padding: 0.5rem 0.5rem;
   border-radius: 15px;
-  max-width: 1100px;   /* ancho máximo del header */
-  margin: 20px auto;      /* centra el header horizontalmente */
-  width: 100%;         /* que use todo el ancho disponible hasta 1200px */
+  height: 80px;
+  font-size: 14px;
+  width: 97%;  
+  max-width: 1200px; 
+  margin: 20px auto;
 }
 .menu ul{
   display: flex;
-  
+  z-index: 2;
+  align-items: center;
+
 }
 .menu li{
-  margin-right: 80px;
   color: black;
   list-style: none;
+}
+.menu li:nth-last-child(2),
+.menu li:last-child {
+  margin-right: 20px;
 }
 .menu a {
   color: black;
   text-decoration: none;
-  display: inline-block; /* NECESARIO para que funcione transform */
+  display: inline-block; 
   transition: all 0.3s ease;
 }
 .menu a:hover {
   color: rgb(112, 112, 112);
-  transform: scale(1.2); /* AGRANDA */
+  transform: scale(1.2); 
 }
-.menu li:nth-child(7) {
-  background-color: gray;
-  border: 2px solid gray;
-  border-radius: 1px;
-  padding: 0px;
+.menu-icon img{
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
 }
-.menu li:nth-child(7) {
-  background: transparent;
-  border: 2px solid gray;
+.menu-icon, #check{
+  display: none;
+}
+.search {
+  position: relative;
+  width: 200px;
+}
+.search input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #EFF1F6;
+}
+
+.search button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.linea {
+  width: 1px;
+  height: 80px;
+  background-color: #ccc;
+  margin: 0 20px; /* espacio a los costados */
+}
+.acciones-header {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espacio entre el buscador y el icono */
+  margin-left: 20px;
+}
+
+.search {
+  position: relative;
+  width: 200px;
+}
+
+.icono-tierra img {
+  display: block;
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  .header {
+    max-width: 97%;
+    padding: 0.5rem ; 
+    font-size: 10px;
+  }
+  .menu ul {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .menu li {
+    margin-right: 25px;
+  }
+  .search {
+    width: 150px;
+  }
+  .search input {
+    padding: 0.3rem;
+  }
+  .linea {
+    height: 80px;
+    margin: 0 15px; /* espacio lateral ajustado */
+  }
+}
+
+/* Ajuste para desktops grandes */
+@media (min-width: 1200px) {
+  .linea {
+    height: 80px;
+    margin: 0 20px;
+  }
+}
+
+/* Opcional: para móviles, ocultar la línea para más espacio */
+@media (max-width: 768px) {
+  .linea {
+    display: none;
+  }
+  .search {
+    width: 120px;
+  }
+  .menu li {
+    margin-right: 15px;
+  }
+}
+@media (max-width:768px){
+  .checkbtn{
+      display: block;
+  }
+  .menu-icon{
+      display: block;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+  }
+  .menu ul{
+      display: block;
+      position: fixed;
+      top:70px;
+      left:-100%;
+      background: white;
+      width: 100%;
+      height: 100vh;
+      right: 0;
+      z-index: 2;
+  }
+  .menu ul li{
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+  }
+  .menu li:nth-child(7){
+      background: none;
+      border: none;
+      padding: 1rem;
+  }
+  #check:checked ~ ul{
+      left: 0;
+      transition: all .25s;
+  }
 }
