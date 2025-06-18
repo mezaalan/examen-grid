@@ -7,7 +7,8 @@ body, html {
         text-decoration: none;
 }
 
-.video-fondo {
+.fondo-celular-tablet {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -16,59 +17,21 @@ body, html {
   object-fit: cover;
   z-index: 0;
 }
-
-.navbar {
-  position: relative;
-  color: black;
-  z-index: 1;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding: 0.5rem ;
-  border-radius: 15px;
-  height: 80px;
-  font-size: 14px;
-  width: 97%;  
-  max-width: 1200px; 
-  margin: 20px auto;
-}
-
-.left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.center {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
-.menu ul{
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
-.menu li{
-  list-style: none;
-}
-.menu a {
-  color: black;
-  text-decoration: none;
-  display: inline-block; 
-  transition: all 0.3s ease;
-}
-.menu a:hover {
-  color: rgb(112, 112, 112);
-  transform: scale(1.2); 
-}
-.menu-icon img{
-  width: 30px;
-  height: 30px;
-  border-radius: 2px;
-}
-.menu-icon, #check{
+.video-fondo {
   display: none;
 }
+@media (min-width: 992px) {
+  .video-fondo {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .fondo-celular {
+    display: none;
+  }
