@@ -1,4 +1,5 @@
- body, html {
+/* ===== RESET ===== */
+body, html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -8,8 +9,8 @@
   list-style: none;
 }
 
-.fondo-celular-tablet {
-  display: block;
+/* ===== BACKGRAUND ===== */
+.background-mobile-tablet, .video-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,25 +19,14 @@
   object-fit: cover;
   z-index: 0;
 }
-.video-fondo {
-  display: none;
-}
-@media (min-width: 1200px) {
-  .video-fondo {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: 0;
-  }
-  .fondo-celular {
-    display: none;
-  }
-} 
+.video-background { display: none; }
 
+@media (min-width: 1200px) {
+  .video-background { display: block; }
+  .background-mobile-tablet { display: none; }
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
   position: relative;
   display: flex;
@@ -44,44 +34,85 @@
   align-items: center;
   flex-wrap: nowrap;
   z-index: 1;
-  background-color: white;
+  background: white;
   color: black;
-  font-size: 12px;
-  width: 97%;
+  width: 92%;
   max-width: 1200px;
-  height: 80px;
-  margin: 20px auto;
-  padding: 0 15px;
-  border-radius: 15px;
+  height: 140px;
+  margin: 25px auto;
+  padding: 0 25px;
+  border-radius: 10px;
+  gap: 10px;
 }
-.left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: flex-start;
-  width: 60%;
-  padding: 0;
-  margin: 0;
-}
-.left .logo img {
-  width: 150px;
-  height: 73px;
-  object-fit: contain;
+@media (max-width: 620px) and (min-width: 500px) {
+  .navbar {
+    height: 120px;
+    padding: 0 20px;
+  }
 }
 
-.right {
+@media (max-width: 500px) and (min-width: 320px) {
+  .navbar {
+    height: 100px;
+    padding: 0 15px;
+  }
+}
+
+/* ===== LEFT ===== */
+.left, .right {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 40%;
-  gap: 40px;
-  flex-wrap: nowrap; /* importante para que no se oculten */
   padding: 0;
   margin: 0;
+  flex-wrap: nowrap;
 }
-.search input {
-  display: none;
+.left {
+  justify-content: flex-start;
+  width: 60%;
 }
+.left .logo img {
+  width: 300px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 620px) and (min-width: 501px) {
+  .left .logo img {
+    width: 250px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 320px) {
+  .left .logo img {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+/* ===== RIGHT ===== */
+.right {
+  justify-content: flex-end;
+  width: 40%;
+}
+@media (max-width: 620px) and (min-width: 500px) {
+  .search img {
+    width: 35px;
+    height: 35px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 320px) {
+  .search img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
+
+/* ===== SEARCH ===== */
+.search input { display: none; }
 .search button {
   background: none;
   border: none;
@@ -89,25 +120,64 @@
   margin: 0;
   cursor: pointer;
 }
-.search img {
-  width: 30px;
-  height: 30px;
+
+/* ===== ICONS ===== */
+.search img, .menu-icon, .earth-icon1 {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.earth-icon2 { display: none; }
+
+/* ===== MARGIN OF ICONS ===== */
+.search img, .earth-icon1 {
+  margin-right: 40px;
+}
+@media (max-width: 620px) and (min-width: 500px) {
+  .search img {
+    width: 35px;
+    height: 35px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 320px) {
+  .search img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
 }
 .menu-icon {
-  display: block;
   border-radius: 2px;
-  width: 30px;
-  height: 30px;
+  margin-right: 20px;
 }
+@media (max-width: 620px) and (min-width: 500px) {
+  .earth-icon1 {
+    width: 35px;
+    height: 35px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 320px) {
+  .earth-icon1 {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
+
+/* ===== MENU HAMBURGER ===== */
 .menu ul {
   display: block;
   position: fixed;
   top: 70px;
   left: -100%;
+  right: 0;
   width: 100%;
   height: 100vh;
-  background-color: white;
-  right: 0;
+  background: white;
 }
 .menu ul li {
   display: flex;
@@ -115,53 +185,90 @@
   padding: 2rem;
   margin: 0;
 }
-.check {
-  display: none;
+@media (max-width: 620px) and (min-width: 500px) {
+  .menu-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
 }
 
+@media (max-width: 500px) and (min-width: 320px) {
+  .menu-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
+/* ===== CHECKBOX & TOGGLE ===== */
+.check { display: none; }
 .checkbutton {
   display: block;
   cursor: pointer;
 }
-#check:checked ~ ul{
+#check:checked ~ ul {
   left: 0;
   transition: all .25s;
 }
-.earth-icon2 {
-  display: none;
+
+@media (min-width: 1200px) {
+  .checkbutton {
+    display: none;
+  }
 }
 
 
 
 
+@media (min-width: 1200px) {
+  .right {
+    display: flex;
+    
+  }
+  .menu ul {
+    position: static;
+    display: flex;
+    height: auto;
+    width: auto;
+    background: none;
+    flex-direction: row;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+  }
 
-
-
-.left {
+  .menu ul li {
+    padding: 0;
+  }
+  .menu ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  .menu ul li a:hover {
+    font-size: 1.5rem;
+    color: gray;
+    text-decoration: underline;
+    font-weight: bold;
+  }
 }
-.logo {
+@media (min-width: 1200px) {
+  #check:checked ~ ul {
+    left: auto;
+    transition: none;
+  }
+  .line {
+    width: 1px;
+    height: 140px;
+    background-color: gray;
+    margin: 0 20px;
+  }
+  .earth-icon1 {
+    display: none;
+  }
+  
+  .earth-icon2, .search input {
+    display: block;
+  }
 }
-.linea {
-}
-.center {
-}
-.menu {
-}
-.checkbutton {
-}
-.menu-icon {
-}
-.ul-link {
-  text-decoration: none;
-}
-.li-link {
-}
-.link {
-}
-.right {
-}
-.search {
-}
-.icono-tierra {
-}
-
