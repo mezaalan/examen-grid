@@ -59,44 +59,44 @@ body, html {
 }
 
 /* ===== LEFT ===== */
-.left, .right {
+.navbar__left {
   display: flex;
   align-items: center;
   padding: 0;
   margin: 0;
   flex-wrap: nowrap;
 }
-.left {
+.navbar__left {
   justify-content: flex-start;
   width: 60%;
 }
-.left .logo img {
+.left__logo{
   width: 300px;
   height: 70px;
   object-fit: contain;
   display: block;
 }
 @media (max-width: 620px) and (min-width: 501px) {
-  .left .logo img {
+  .left__logo{
     width: 250px;
     height: 60px;
   }
 }
 
 @media (max-width: 500px) and (min-width: 320px) {
-  .left .logo img {
+  .left__logo {
     width: 150px;
     height: 40px;
   }
 }
 
 /* ===== RIGHT ===== */
-.right {
+.navbar__right {
   justify-content: flex-end;
   width: 40%;
 }
 @media (max-width: 620px) and (min-width: 500px) {
-  .search img {
+  .right__search-icon {
     width: 35px;
     height: 35px;
     margin-right: 30px;
@@ -104,7 +104,7 @@ body, html {
 }
 
 @media (max-width: 500px) and (min-width: 320px) {
-  .search img {
+  .right__search-icon {
     width: 25px;
     height: 25px;
     margin-right: 10px;
@@ -112,8 +112,8 @@ body, html {
 }
 
 /* ===== SEARCH ===== */
-.search input { display: none; }
-.search button {
+.right__search input { display: none; }
+.right__search button {
   background: none;
   border: none;
   padding: 0;
@@ -122,7 +122,7 @@ body, html {
 }
 
 /* ===== ICONS ===== */
-.search img, .menu-icon, .earth-icon1 {
+.search-icon img, .menu-icon, .earth-icon1 {
   width: 40px;
   height: 40px;
   display: block;
@@ -210,65 +210,103 @@ body, html {
   left: 0;
   transition: all .25s;
 }
-
 @media (min-width: 1200px) {
+  /* Oculta el botón hamburguesa */
   .checkbutton {
     display: none;
   }
-}
 
-
-
-
-@media (min-width: 1200px) {
+  /* Navbar lado derecho */
   .right {
     display: flex;
-    
+    align-items: center;
+    gap: 10px; /* Espacio entre íconos */
   }
+
+  /* Línea divisoria */
+  .line {
+    width: 1px;
+    height: 140px;
+    background-color: gray;
+    margin: 0 5px;
+  }
+
+  /* Íconos del mundo */
+  .earth-icon1 {
+    display: none;
+  }
+
+  .earth-icon2 {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Menú horizontal */
   .menu ul {
     position: static;
     display: flex;
-    height: auto;
-    width: auto;
-    background: none;
     flex-direction: row;
-    gap: 50px;
+    gap: 40px;
+    background: none;
     padding: 0;
     margin: 0;
+    height: auto;
+    width: auto;
   }
 
   .menu ul li {
     padding: 0;
   }
+
   .menu ul li a {
     text-decoration: none;
     color: inherit;
     font-size: 1rem;
     transition: all 0.3s ease;
   }
+
   .menu ul li a:hover {
     font-size: 1.5rem;
     color: gray;
     text-decoration: underline;
     font-weight: bold;
   }
-}
-@media (min-width: 1200px) {
+
+  /* Corrige posición del menú al abrir */
   #check:checked ~ ul {
     left: auto;
     transition: none;
   }
-  .line {
-    width: 1px;
-    height: 140px;
-    background-color: gray;
-    margin: 0 20px;
-  }
-  .earth-icon1 {
-    display: none;
+
+  .search {
+    position: relative;
+    display: flex;
+    align-items: center;
   }
   
-  .earth-icon2, .search input {
+  .search input {
     display: block;
+    width: 200px;
+    height: 40px;
+    font-size: 1rem;
+    border: 1px solid #dbe0e7;
+    border-radius: 4px;
+    background-color: #eff1f6; 
   }
-}
+  
+  /* Ícono dentro del input alineado al borde derecho */
+  .search-icon img{
+    position: absolute;
+    right: 25px; /* lo acerca al borde */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    margin-right: 0;
+  }
+  .search-icon {
+    border: 1px solid red;
+  }
+} 
