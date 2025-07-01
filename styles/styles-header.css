@@ -42,12 +42,11 @@ html {
   background: white;
   color: black;
   max-width: 1200px;
-  height: 140px;
-  margin: 25px auto;
-  border-radius: 10px;
+  margin: 14px auto;
+  border-radius: 7px;
   flex-wrap: nowrap;
-  height: 100px;
-  width: 85%;
+  height: 62px;
+  width: 81%;
   padding: 0 20px;
   @media (min-width: 1200px) {
     width: 92%;
@@ -60,8 +59,7 @@ html {
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
-  border-right: 1px solid grey;
-  padding-right: 20px;
+  border-right: 2px solid #EAEDF1;
   @media (max-width: 1200px) {
     border-right: none;
   }
@@ -69,8 +67,8 @@ html {
 .left__logo {
   object-fit: contain;
   display: block;
-  width: 250px;
-  height: 50px;
+  width: 150px;
+  height: 32px;
 }
 .navbar__menu {
   display: none;
@@ -147,25 +145,19 @@ html {
   align-items: center;
   padding: 0;
   margin: 0;
-  border-left: 1px solid grey;
+  border-left: 2px solid #EAEDF1; 
   padding-left: 20px;
+  gap: 15px;
   flex-wrap: nowrap;
   @media (max-width: 1200px) {
-    gap: 5px;
     border-left: none;
   }
 }
 
-.icon-earth,
-.icon-search {
-  margin-right: 20px;
-}
 /* ================= ICONS ================= */
-
 .icon svg {
-  width: 35px;
-  height: 35px;
-
+  width: 20px;
+  height: 20px;
 }
 
 .icon-search {
@@ -179,7 +171,7 @@ html {
 }
 /* ===== EARTH ===== */
 .icon-earth {
-
+  position: relative;
   @media (min-width: 1200px) {
     display: block;
     order: 1;
@@ -187,17 +179,45 @@ html {
 }
 
 .language__dropdown {
-  display: none;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: -100%;
+  transform: translateY(-50% -20px);
+  width: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   background-color: white;
+  margin-top: 30px;
+}
 
-  #language-toggle:checked ~ & {
-    display: flex;
-    height: calc(100vh - 100% - 20px);
-  }
+#language-toggle:checked ~ .language__dropdown {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.language__list {
+  display:flex ;
+  list-style: none; 
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+  font-size: 20px;
+}
+.language__list a {
+  text-decoration: none;
+  color: black;
+  display: inline-block; 
+  transition: all 0.1s ease, color 0.1s ease;
+}
+
+.language__list a:hover,
+.language__list a:focus {
+  transform: scale(1.1);
+  color: #555;
 }
 
 /* ===== SEARCH ===== */
@@ -241,7 +261,3 @@ html {
     }
   }
 }
-
-
-
-
