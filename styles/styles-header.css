@@ -1,0 +1,263 @@
+/* ===== RESET ===== */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* ===== BACKGROUND ===== */
+.background__mobile-and-tablet,
+.background__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+.background__mobile-and-tablet {
+  @media (min-width: 1200px) {
+    display: none;
+  }
+}
+.background__video {
+  display: none;
+  @media (min-width: 1200px) {
+    display: block;
+  }
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  z-index: 1;
+  background: white;
+  color: black;
+  max-width: 1200px;
+  margin: 14px auto;
+  border-radius: 7px;
+  flex-wrap: nowrap;
+  height: 62px;
+  width: 81%;
+  padding: 0 20px;
+  @media (min-width: 1200px) {
+    width: 92%;
+  }
+}
+/* ===== NAVBAR LEFT ===== */
+.navbar__left {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  border-right: 2px solid #EAEDF1;
+  @media (max-width: 1200px) {
+    border-right: none;
+  }
+}
+.left__logo {
+  object-fit: contain;
+  display: block;
+  width: 150px;
+  height: 32px;
+}
+.navbar__menu {
+  display: none;
+  position: absolute;
+  @media (min-width: 1200px) {
+    position: relative;
+    display: block;
+  }
+}
+
+.navbar__toggler {
+  display: none;
+
+  &:checked ~ .navbar__menu {
+    display: flex;
+    position: absolute;
+    left: 0;
+    height: calc(100vh - 100% - 20px);
+    width: 100%;
+    background-color: white;
+    top: 100%;
+  }
+}
+
+
+/* ===== NAVBAR CENTER ===== */
+.navbar__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.right__input {
+  display: none;
+}
+
+.navbar__menu {
+  .menu__link {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    column-gap: 20px;
+    font-size: 20px;
+    margin: 0;
+  }
+  .menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    row-gap: 10px;
+    list-style: none;
+    column-gap: 20px;
+    font-size: 20px;
+    @media (min-width: 1200px) {
+      flex-direction: row;
+    }
+  }
+}
+.icon-hamburger {
+  display: block;
+  @media (min-width: 1200px) {
+    display: none;
+  }
+}
+/* ===== NAVBAR RIGHT ===== */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid #EAEDF1; 
+  padding-left: 20px;
+  gap: 15px;
+  flex-wrap: nowrap;
+  @media (max-width: 1200px) {
+    border-left: none;
+  }
+}
+
+/* ================= ICONS ================= */
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-search {
+  @media (min-width: 1200px) {
+   display: none;
+  }
+}
+.search__toggle,
+.button-earth {
+  display: none;
+}
+/* ===== EARTH ===== */
+.icon-earth {
+  position: relative;
+  @media (min-width: 1200px) {
+    display: block;
+    order: 1;
+  }
+}
+
+.language__dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: -100%;
+  transform: translateY(-50% -20px);
+  width: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: white;
+  margin-top: 30px;
+}
+
+#language-toggle:checked ~ .language__dropdown {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.language__list {
+  display:flex ;
+  list-style: none; 
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+  font-size: 20px;
+}
+.language__list a {
+  text-decoration: none;
+  color: black;
+  display: inline-block; 
+  transition: all 0.1s ease, color 0.1s ease;
+}
+
+.language__list a:hover,
+.language__list a:focus {
+  transform: scale(1.1);
+  color: #555;
+}
+
+/* ===== SEARCH ===== */
+.right__search {
+  position: relative;
+
+  .right__search-input {
+    display: none;
+
+    @media (min-width: 1200px) {
+      display: block;
+      padding: 10px 40px 10px 15px;
+      font-size: 16px;
+      border: 1px solid #e2e6ec;
+      border-radius: 5px;
+      background-color: #eff1f6;
+      height: 30px;
+      width: 250px;
+    }
+  }
+
+  .right__search-button {
+    display: none;
+
+    @media (min-width: 1200px) {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 35px;
+      height: 35px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
